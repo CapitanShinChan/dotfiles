@@ -21,6 +21,10 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+# uses terminfo key definitions for up/down arrows which are more reliable than
+# raw escape sequences in WSL, ensuring history search works regardless of terminal settings
+bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
+bindkey "$terminfo[kcud1]" down-line-or-beginning-search
 
 # Aliases
 alias ..='cd ..'
@@ -32,6 +36,10 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias zshrc='nano ~/.zshrc'
 alias reload='source ~/.zshrc'
+
+# Enable Ctrl + arrow moving through words
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 . "$HOME/.cargo/env"
 export EDITOR=nvim
