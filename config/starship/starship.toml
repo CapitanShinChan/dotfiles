@@ -1,0 +1,45 @@
+format = """
+[╭─](bright-black)$username$directory$git_branch$git_status$rust$golang$python
+[╰─](bright-black)$character"""
+
+[username]
+show_always = true
+format = "[$user]($style) "
+style_user = "bold cyan"
+
+[directory]
+format = "in [$path]($style) "
+style = "bold yellow"
+truncation_length = 3
+truncate_to_repo = true
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[git_branch]
+format = "on [$symbol$branch]($style) "
+style = "bold purple"
+symbol = " "
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = "bold red"
+
+[rust]
+format = "via [$symbol$version]($style) "
+style = "bold red"
+symbol = "🦀 "
+
+[golang]
+format = "via [$symbol$version]($style) "
+style = "bold cyan"
+symbol = " "
+
+[python]
+format = "via [$symbol$version]($style) "
+style = "bold yellow"
+symbol = " "
+
+[cmd_duration]
+disabled = true
